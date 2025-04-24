@@ -1,0 +1,108 @@
+:root {
+  /* Premium school color palette */
+  --color-bg: #f8f4e3;             /* Ivory background */
+  --color-bg-variant: #ecf0f1;     /* Soft cream variant */
+  --color-primary: #2c3e50;        /* Deep charcoal/navy */
+  --color-primary-variant: rgba(44, 62, 80, 0.4); /* Translucent accent */
+  --color-accent: #d4af37;         /* Elegant gold */
+  --color-light: rgba(44, 62, 80, 0.6); /* Muted text */
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* FORM */
+.register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+}
+
+.registerTitle {
+  font-size: 48px;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.registerForm {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background: var(--color-bg-variant);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.registerForm > label {
+  margin: 12px 0 6px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.registerInput {
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-primary-variant);
+  border-radius: 8px;
+  color: var(--color-primary);
+  font-size: 15px;
+}
+
+.registerInput:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.registerButton {
+  margin-top: 24px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: var(--color-accent);
+}
+
+@media screen and (max-width: 480px) {
+  .registerForm {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .registerInput {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .registerButton {
+    font-size: 15px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+}

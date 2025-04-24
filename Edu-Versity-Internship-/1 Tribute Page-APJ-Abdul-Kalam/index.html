@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="A tribute page for Dr. A. P. J. Abdul Kalam" />
+        <meta name="author" content="Your Name" />
+        <title>A. P. J. Abdul Kalam Tribute Page</title>
+        <!-- Font Awesome for Icons -->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Bootstrap CSS - This was missing -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Stylesheets -->
+        <style>
+            /* General Styles */
+            body {
+                font-family: 'Nunito', sans-serif;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Varela Round', sans-serif;
+                font-weight: 700;
+            }
+
+            a {
+                color: #64a19d;
+                transition: color 0.3s ease;
+            }
+
+            a:hover {
+                color: #46817d;
+                text-decoration: none;
+            }
+
+            /* Navigation */
+            #mainNav {
+                background-color: rgba(255, 255, 255, 0.95);
+                transition: all 0.3s ease;
+                padding: 0.5rem 1rem;
+            }
+
+            #mainNav.navbar-shrink {
+                background-color: #fff;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+                color: #333 !important;
+                white-space: normal; /* Allow text to wrap on mobile */
+                line-height: 1.2;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                padding: 1rem !important;
+                color: #333 !important;
+            }
+
+            .nav-link:hover {
+                color: #64a19d !important;
+            }
+
+            /* Masthead */
+            .masthead {
+                min-height: 100vh;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('./assets/img/abdul-kalam.jpeg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                text-align: center;
+                padding: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .masthead-heading {
+                font-size: 4rem;
+                line-height: 1.2;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .masthead-subheading {
+                font-size: 1.5rem;
+                font-weight: 300;
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            }
+
+            .masthead-quote {
+                font-style: italic;
+                font-size: 1.2rem;
+                margin-top: 1rem;
+                opacity: 0.9;
+            }
+
+            /* Sections */
+            .about-section, .early-life-section, .timeline-section, .awards-section, .books-section {
+                padding: 5rem 0;
+            }
+
+            .about-section, .timeline-section, .books-section {
+                background-color: #f8f9fa;
+            }
+
+            .about-content {
+                background: #fff;
+                border-radius: 8px;
+            }
+
+            .card {
+                border: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Timeline */
+            .timeline {
+                position: relative;
+                padding: 0;
+                list-style: none;
+            }
+
+            .timeline:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background: #64a19d;
+                left: 50%;
+                margin-left: -2px;
+            }
+
+            .timeline-item {
+                padding: 1rem 0;
+                position: relative;
+                width: 50%;
+                margin-bottom: 20px;
+            }
+
+            .timeline-item.left {
+                left: 0;
+                text-align: right;
+                padding-right: 40px;
+            }
+
+            .timeline-item.right {
+                left: 50%;
+                text-align: left;
+                padding-left: 40px;
+            }
+
+            .timeline-content {
+                background: #fff;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+
+            .timeline-item.left .timeline-content:after {
+                content: '';
+                position: absolute;
+                top: 20px;
+                right: -10px;
+                width: 20px;
+                height: 20px;
+                background: #64a19d;
+                border-radius: 50%;
+            }
+
+            .timeline-item.right .timeline-content:after {
+                content: '';
+                position: absolute;
+                top: 20px;
+                left: -10px;
+                width: 20px;
+                height: 20px;
+                background: #64a19d;
+                border-radius: 50%;
+            }
+
+            /* Animation */
+            .animate-section {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .animate-section.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Responsive */
+            @media (max-width: 991px) {
+                .masthead-heading {
+                    font-size: 2.5rem;
+                }
+                .masthead-subheading {
+                    font-size: 1rem;
+                }
+                .nav-link {
+                    padding: 0.5rem 1rem !important;
+                }
+                .navbar-collapse {
+                    background-color: rgba(255, 255, 255, 0.95);
+                    padding: 1rem;
+                    border-radius: 5px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .timeline:before {
+                    left: 20px;
+                }
+                .timeline-item {
+                    width: 100%;
+                    left: 0 !important;
+                    text-align: left;
+                    padding-left: 50px !important;
+                    padding-right: 0 !important;
+                }
+                .timeline-item.left .timeline-content:after,
+                .timeline-item.right .timeline-content:after {
+                    left: -10px;
+                    right: auto;
+                }
+                .masthead-heading {
+                    font-size: 2rem;
+                }
+                .books-section .row {
+                    text-align: center;
+                }
+            }
+
+            /* Back to Top Button */
+            #backToTop {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                background-color: #64a19d;
+                color: #fff;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                z-index: 99;
+                opacity: 0.7;
+                transition: opacity 0.3s;
+            }
+
+            #backToTop:hover {
+                opacity: 1;
+            }
+
+            /* Footer */
+            .footer {
+                background-color: #1a1a1a;
+                padding: 2rem 0;
+            }
+
+            /* Image Gallery */
+            .gallery-item {
+                margin-bottom: 30px;
+                overflow: hidden;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .gallery-item:hover {
+                transform: scale(1.05);
+            }
+
+            /* Modal */
+            .modal-content {
+                background-color: rgba(255, 255, 255, 0.95);
+            }
+
+            /* Carousel Controls */
+            .carousel-control-prev, .carousel-control-next {
+                width: 5%;
+                opacity: 0.8;
+            }
+            
+            .carousel-control-prev-icon, .carousel-control-next-icon {
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 50%;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">A. P. J. Abdul Kalam</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#early-life">Early Life</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#timeline">Timeline</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Awards</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#books">Books</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead -->
+        <header class="masthead">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <h1 class="masthead-heading text-uppercase">A. P. J. Abdul Kalam</h1>
+                    <h2 class="masthead-subheading">"Missile Man of India"</h2>
+                    <p class="masthead-quote">"Dreams are not those which you see while sleeping, it is something that does not let you sleep."</p>
+                    <a href="#about" class="btn btn-primary js-scroll-trigger mt-4">Learn More</a>
+                </div>
+            </div>
+        </header>
+        <!-- About Section -->
+        <section class="about-section animate-section" id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded shadow" src="./assets/img/background2.jpg" alt="Dr. A. P. J. Abdul Kalam" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content p-4 shadow-sm rounded">
+                            <h2>About Dr. Kalam</h2>
+                            <p>Dr. Avul Pakir Jainulabdeen Abdul Kalam (15 October 1931 – 27 July 2015) was an Indian aerospace scientist and statesman who served as the 11th President of India from 2002 to 2007. Known as the "Missile Man of India," he played a pivotal role in the development of India's missile and nuclear weapons programs. A humble visionary, he inspired millions with his dedication to science, education, and youth empowerment.</p>
+                            <p>Throughout his life, Dr. Kalam remained committed to transforming India into a developed nation and was beloved for his simple lifestyle and accessible approach to leadership. His vision for India, articulated in his writings and speeches, continues to inspire generations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Early Life Section -->
+        <section class="early-life-section animate-section" id="early-life">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <img class="img-fluid rounded shadow" src="./assets/img/APJ-Abdul-Kalam-young.jpg" alt="Young A. P. J. Abdul Kalam" />
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-4 shadow-sm rounded bg-white">
+                            <h2>Early Life</h2>
+                            <p>Born in Rameswaram, Tamil Nadu, into a modest family, Kalam overcame financial hardships by selling newspapers as a child. His curiosity for science led him to study aerospace engineering at the Madras Institute of Technology, laying the foundation for his remarkable career.</p>
+                            <p>Growing up in a diverse environment, young Kalam was deeply influenced by his family values, particularly from his father who taught him the importance of integrity and self-discipline. Despite financial constraints, his parents ensured he received education, recognizing his intellectual potential from an early age.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline Section -->
+        <section class="timeline-section animate-section" id="timeline">
+            <div class="container">
+                <h2 class="text-center mb-5">Life Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h5>1931</h5>
+                            <p>Born in Rameswaram, Tamil Nadu on October 15.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h5>1955</h5>
+                            <p>Graduated in Physics from Saint Joseph's College, Tiruchirappalli.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h5>1960</h5>
+                            <p>Joined DRDO as a scientist after graduating from Madras Institute of Technology.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h5>1969</h5>
+                            <p>Transferred to ISRO where he was project director of India's first satellite launch vehicle.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h5>1980</h5>
+                            <p>Successfully deployed Rohini satellite near earth's orbit with SLV-III.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h5>1990s</h5>
+                            <p>Served as the Chief Scientific Adviser to the Prime Minister.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h5>1998</h5>
+                            <p>Led India's Pokhran-II nuclear tests which established India as a nuclear power.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h5>2002</h5>
+                            <p>Elected as the 11th President of India with an overwhelming majority.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h5>2007</h5>
+                            <p>Completed presidential term and returned to civilian life, focusing on teaching.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h5>2015</h5>
+                            <p>Passed away on July 27 while delivering a lecture at IIM Shillong.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Awards Section -->
+        <section class="awards-section animate-section" id="awards">
+            <div class="container">
+                <h2 class="text-center mb-5">Awards & Honors</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-medal fa-3x mb-3 text-primary"></i>
+                                <h5 class="card-title">Padma Bhushan</h5>
+                                <p class="card-text">1981</p>
+                                <p class="small">India's third-highest civilian award</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-award fa-3x mb-3 text-warning"></i>
+                                <h5 class="card-title">Padma Vibhushan</h5>
+                                <p class="card-text">1990</p>
+                                <p class="small">India's second-highest civilian award</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-star fa-3x mb-3 text-danger"></i>
+                                <h5 class="card-title">Bharat Ratna</h5>
+                                <p class="card-text">1997</p>
+                                <p class="small">India's highest civilian award</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-university fa-3x mb-3 text-info"></i>
+                                <h5 class="card-title">King Charles II Medal</h5>
+                                <p class="card-text">2007</p>
+                                <p class="small">Royal Society, UK</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-book fa-3x mb-3 text-success"></i>
+                                <h5 class="card-title">Hoover Medal</h5>
+                                <p class="card-text">2009</p>
+                                <p class="small">American Society of Mechanical Engineers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-globe-asia fa-3x mb-3 text-secondary"></i>
+                                <h5 class="card-title">IEEE Honorary Membership</h5>
+                                <p class="card-text">2011</p>
+                                <p class="small">Institute of Electrical and Electronics Engineers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Books Section -->
+        <section class="books-section animate-section" id="books">
+            <div class="container">
+                <h2 class="text-center mb-5">Books by Dr. Kalam</h2>
+                <div id="booksCarousel" class="carousel slide shadow-sm rounded" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#booksCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#booksCarousel" data-slide-to="1"></li>
+                        <li data-target="#booksCarousel" data-slide-to="2"></li>
+                        <li data-target="#booksCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner bg-white rounded">
+                        <div class="carousel-item active py-4">
+                            <div class="row align-items-center px-3">
+                                <div class="col-md-6">
+                                    <img class="img-fluid rounded" src="./assets/img/wingsOfFire.jpg" alt="Wings of Fire" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Wings of Fire</h4>
+                                    <p class="text-muted">Published: 1999</p>
+                                    <p>An autobiography that chronicles his inspiring journey from humble beginnings to a celebrated scientist. The book has been translated into multiple languages and remains one of the most influential autobiographies in modern India.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item py-4">
+                            <div class="row align-items-center px-3">
+                                <div class="col-md-6">
+                                    <img class="img-fluid rounded" src="./assets/img/Ignited_Minds.jpg" alt="Ignited Minds" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Ignited Minds</h4>
+                                    <p class="text-muted">Published: 2002</p>
+                                    <p>A book aimed at inspiring the youth of India to dream big and contribute to the nation. Dr. Kalam shares his interactions with students across the country and presents his vision for a developed India.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item py-4">
+                            <div class="row align-items-center px-3">
+                                <div class="col-md-6">
+                                    <img class="img-fluid rounded" src="./assets/img/INDIA_2020.jpg" alt="India 2020" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>India 2020</h4>
+                                    <p class="text-muted">Published: 1998</p>
+                                    <p>This visionary book outlines Dr. Kalam's roadmap for transforming India into a developed nation by 2020. He identifies five areas where India needs to build core competencies: agriculture, education, healthcare, information technology, and infrastructure.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item py-4">
+                            <div class="row align-items-center px-3">
+                                <div class="col-md-6">
+                                    <img class="img-fluid rounded" src="./assets/img/turningpt.jpg" alt="Turning Points" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Turning Points</h4>
+                                    <p class="text-muted">Published: 2012</p>
+                                    <p>A sequel to "Wings of Fire," this book focuses on Dr. Kalam's presidential years. He shares his experiences at the highest office and the decisions that shaped modern India during his tenure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#booksCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#booksCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section (New) -->
+        <section class="gallery-section animate-section" id="gallery">
+            <div class="container">
+                <h2 class="text-center mb-5">Photo Gallery</h2>
+                <div class="row">
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="0">
+                        <img src="./assets/img/dr-with-stds.avif" alt="Dr. Kalam with students" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="1">
+                        <img src="./assets/img/dr-isro.jpg" alt="Dr. Kalam at ISRO" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="2">
+                        <img src="./assets/img/president-sir.webp" alt="Dr. Kalam as President" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="3">
+                        <img src="./assets/img/award.jpg" alt="Dr. Kalam receiving award" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="4">
+                        <img src="./assets/img/conference.jpg" alt="Dr. Kalam at a conference" class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-4 gallery-item" data-toggle="modal" data-target="#galleryModal" data-slide="5">
+                        <img src="./assets/img/study.avif" alt="Dr. Kalam in his study" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+            </div>
+          
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/conference.jpg" alt="Dr. Kalam at a conference" class="img-fluid">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Dr. Kalam at a conference</h5>
+                                            <p>Sharing his vision for India's future at an international conference.</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="./assets/img/study.avif" alt="Dr. Kalam in his study" class="img-fluid">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5>Dr. Kalam in his study</h5>
+                                            <p>Dr. Kalam was known for his simple lifestyle and love for books.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#galleryCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section (New) -->
+        <section class="quote-section animate-section py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-5 text-center">
+                                <i class="fas fa-quote-left fa-3x text-muted mb-4"></i>
+                                <p class="lead mb-4">
+                                    "You have to dream before your dreams can come true. Dream, dream, dream. Dreams transform into thoughts and thoughts result in action."
+                                </p>
+                                <p class="text-muted">- Dr. A. P. J. Abdul Kalam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-dark text-center text-white-50">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5 class="text-white">Connect</h5>
+                        <ul class="list-inline social-icons">
+                            <li class="list-inline-item">
+                                <a href="#" class="text-white">
+                                    <i class="fab fa-facebook fa-lg"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="text-white">
+                                    <i class="fab fa-twitter fa-lg"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="text-white">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="text-white">
+                                    <i class="fab fa-youtube fa-lg"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5 class="text-white">Resources</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://apjabdulkalamfoundation.org/" class="text-white-50">Abdul Kalam Foundation</a></li>
+                            <li><a href="https://www.jagranjosh.com/general-knowledge/list-of-books-written-by-dr-abdul-kalam-1509088012-1" class="text-white-50">Books & Publications</a></li>
+                            <li><a href="https://archive.org/details/presidentdrapjab02unse" class="text-white-50">Speeches Archive</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-white">Contact</h5>
+                        <p class="text-white-50">
+                            <i class="fas fa-envelope mr-2"></i>omdadhe07@gmail.com<br>
+                            <i class="fas fa-phone mr-2"></i> +91 8830731757
+                        </p>
+                    </div>
+                </div>
+                <hr class="my-4 bg-secondary">
+                <p>Tribute crafted with respect | © Om Dadhe 2025</p>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <div id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        
+        <!-- Custom JS -->
+        <script>
+            // Smooth Scrolling
+            $(document).ready(function(){
+                // Initialize variables for animations
+                let scrolling = false;
+                let navHeight = $("#mainNav").outerHeight();
+                
+                // Smooth scrolling for anchor links
+                $(".js-scroll-trigger").click(function(e) {
+                    e.preventDefault();
+                    const target = $(this).attr("href");
+                    const offset = $(target).offset().top - navHeight;
+                    
+                    // Close navbar if open on mobile
+                    if($(".navbar-collapse").hasClass("show")) {
+                        $(".navbar-collapse").collapse('hide');
+                    }
+                    
+                    $("html, body").animate({
+                        scrollTop: offset
+                    }, 1000, "easeInOutExpo", function() {
+                        // Callback to update URL without adding to browser history
+                        if(history.pushState) {
+                            history.pushState(null, null, target);
+                        } else {
+                            location.hash = target;
+                        }
+                    });
+                });
+
+                // Shrink Navbar on Scroll
+                $(window).scroll(function() {
+                    const scroll = $(this).scrollTop();
+                    
+                    // Navbar shrink effect
+                    if (scroll > 50) {
+                        $("#mainNav").addClass("navbar-shrink");
+                    } else {
+                        $("#mainNav").removeClass("navbar-shrink");
+                    }
+                    
+                    // Back to top button visibility
+                    if (scroll > 300) {
+                        $("#backToTop").fadeIn();
+                    } else {
+                        $("#backToTop").fadeOut();
+                    }
+                    
+                    // Throttle section animation checks
+                    if (!scrolling) {
+                        scrolling = true;
+                        checkSectionVisibility();
+                        
+                        setTimeout(function() {
+                            scrolling = false;
+                        }, 100);
+                    }
+                });
+
+                // Section Animations
+                function checkSectionVisibility() {
+                    const sections = document.querySelectorAll('.animate-section');
+                    const windowHeight = window.innerHeight;
+                    const scrollTop = window.pageYOffset;
+                    
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        
+                        // Add visible class when section is in viewport
+                        if (scrollTop > (sectionTop - windowHeight + 100) && 
+                            scrollTop < (sectionTop + sectionHeight)) {
+                            section.classList.add('visible');
+                        }
+                    });
+                }
+                
+                // Initialize section visibility check on page load
+                checkSectionVisibility();
+                
+                // Back to top button functionality
+                $("#backToTop").click(function() {
+                    $("html, body").animate({ scrollTop: 0 }, 800, "easeInOutExpo");
+                    return false;
+                });
+                
+                // Gallery modal trigger
+                $(".gallery-item").click(function() {
+                    const slideIndex = $(this).data("slide");
+                    $("#galleryCarousel").carousel(parseInt(slideIndex));
+                });
+                
+                // Books carousel autoplay settings
+                $('#booksCarousel').carousel({
+                    interval: 5000,
+                    pause: 'hover'
+                });
+                
+                // Initialize tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+                
+                // Add active class to navbar items based on scroll position
+                function updateNavActiveState() {
+                    const scrollPosition = $(document).scrollTop() + navHeight + 50;
+                    
+                    $('section').each(function() {
+                        const currentSection = $(this);
+                        const sectionTop = currentSection.offset().top;
+                        const sectionBottom = sectionTop + currentSection.outerHeight();
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                            const id = currentSection.attr('id');
+                            $('.navbar-nav .nav-link').removeClass('active');
+                            $(`.navbar-nav .nav-link[href="#${id}"]`).addClass('active');
+                        }
+                    });
+                }
+                
+                // Check active nav state on scroll
+                $(window).on('scroll', function() {
+                    updateNavActiveState();
+                });
+                
+                // Update nav active state on page load
+                updateNavActiveState();
+                
+                // Preload images for smoother experience
+                const preloadImages = () => {
+                    const images = document.querySelectorAll('img');
+                    images.forEach(img => {
+                        const src = img.getAttribute('src');
+                        if (src) {
+                            const newImg = new Image();
+                            newImg.src = src;
+                        }
+                    });
+                }
+                
+                // Call preload images function
+                preloadImages();
+                
+                // Add CSS classes to nav links for better hover effects
+                $('.nav-link').hover(
+                    function() {
+                        $(this).addClass('nav-hover');
+                    },
+                    function() {
+                        $(this).removeClass('nav-hover');
+                    }
+                );
+                
+                // Add animation on timeline items hover
+                $('.timeline-content').hover(
+                    function() {
+                        $(this).addClass('shadow');
+                    },
+                    function() {
+                        $(this).removeClass('shadow');
+                    }
+                );
+                
+                // Add fade effect when switching tabs
+                $('.navbar-nav .nav-link').on('click', function() {
+                    $('.navbar-nav .nav-link').removeClass('active');
+                    $(this).addClass('active');
+                });
+                
+                // Add mobile detection for enhanced mobile experience
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                    $('body').addClass('mobile-device');
+                }
+            });
+        </script>
+    </body>
+</html>
