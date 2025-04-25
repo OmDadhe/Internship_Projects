@@ -2,6 +2,8 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
+console.log('MONGO_URL=', process.env.MONGO_URL);
+
 // const bodyParser = require("body-parser")
 const app = express()
 const Routes = require("./routes/route.js")
@@ -14,7 +16,10 @@ dotenv.config();
 // app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 app.use(express.json({ limit: '10mb' }))
-app.use(cors())
+app.use(cors({
+    origin: 'https://schoolmanagementsystembyom.netlify.app/', // replace with your deployed frontend URL
+  }));
+  
 
 mongoose
     .connect(process.env.MONGO_URL, {
