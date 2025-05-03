@@ -113,9 +113,7 @@ A comprehensive school management platform built with the MERN stack, designed t
 - **Mobile-responsive Interface**
 
 ## 🚀 Demo
-
-- **[📹 Watch Demo Video](https://youtu.be/ol650KwQkgY?si=rKcboqSv3n-e4UbC)**
-- **[🌐 Live Frontend Demo](https://school-management-frontend.netlify.app)**
+- **[🌐 Live Frontend Demo](https://schoolmanagementsystembyom.netlify.app/)**
 - **[⚙️ Backend API](https://pms-backend-0ne7.onrender.com)**
 
 ### Test Credentials
