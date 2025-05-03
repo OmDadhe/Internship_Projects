@@ -18,7 +18,7 @@ A responsive and elegant tribute page honoring the life and contributions of Dr.
 
 ## 🚀 Live Demo
 
-[View the live tribute page](https://your-username.github.io/tribute-page-apj-abdul-kalam)
+[View the live tribute page](https://venerable-klepon-9772a8.netlify.app/)
 
 ## 📋 Project Structure
 
